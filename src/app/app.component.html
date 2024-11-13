@@ -1,0 +1,38 @@
+<div class="Contenedor" [ngClass]="{'dark-mode': isDarkMode}">
+  
+  <div class="column-left">
+    <div class="Encabezado">
+      <p>Sumativa </p>
+    </div>
+    <!-- Botones agrupados -->
+    <div class="botones">
+      <div class="button-group">
+        <app-btn-accept (action)="onButtonClicked($event)" [isDarkMode]="isDarkMode"></app-btn-accept>
+        <app-btn-decline (action)="onButtonClicked($event)" [isDarkMode]="isDarkMode"></app-btn-decline>
+      </div>
+      <div class="button-group">
+        <app-btn-primary (action)="onButtonClicked($event)" [isDarkMode]="isDarkMode"></app-btn-primary>
+        <app-btn-secundary (action)="onButtonClicked($event)" [isDarkMode]="isDarkMode"></app-btn-secundary>
+      </div>
+      <div class="button-group">
+        <app-btn-darkmode (DarkMode)="onDarkModeToggle($event)" ></app-btn-darkmode>
+      </div>
+    </div>
+    
+    <!-- Formulario de entradas -->
+    <div class="inputs">
+      <!-- <app-input-email [(ngModel)]="email" (valorEnviadoEmail)="recibirValorEmail($event)" [isDarkMode]="isDarkMode"></app-input-email>
+      <app-input-password [(ngModel)]="password" (valorEnviadoPassword)="recibirValorPassword($event)" [isDarkMode]="isDarkMode"></app-input-password>
+      <app-input-text [(ngModel)]="text" (valorEnviadoText)="recibirValorText($event)" [isDarkMode]="isDarkMode"></app-input-text>  -->
+      <app-input-email (valorEnviadoEmail)="recibirValorEmail($event)" [isDarkMode]="isDarkMode"></app-input-email>
+      <app-input-password (valorEnviadoPassword)="recibirValorPassword($event)" [isDarkMode]="isDarkMode"></app-input-password>
+      <app-input-text (valorEnviadoText)="recibirValorText($event)" [isDarkMode]="isDarkMode"></app-input-text> 
+    </div>
+  </div>
+
+  <!-- Columna de la derecha, donde se muestra el Visualizador -->
+  <div class="column-right">
+    <!-- Pasa los valores de los inputs al VisualizadorComponent -->
+    <app-visualizador [password]="password" [email]="email" [text]="text" [accion]="accion" [isDarkMode]="isDarkMode" ></app-visualizador> 
+  </div>
+</div>

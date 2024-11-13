@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+    <div class="input-container">
+      <input 
+        type="email"
+        id="email"
+        formControlName="email"  
+        [ngClass]="{'is-invalid': emailControl?.invalid && (emailControl?.dirty || emailControl?.touched)}"
+        (ngModelChange)="enviarValorEmail($event)"  
+      />
+      <label class="label" for="email">Ingresar Email</label>
+      
+      <!-- Mostrar los mensajes de error solo si el control está inválido -->
+      <div *ngIf="emailControl?.invalid && (emailControl?.dirty || emailControl?.touched)">
+        <small *ngIf="emailControl?.errors?.['required']">El correo es obligatorio.</small>
+        <small *ngIf="emailControl?.errors?.['email']">Ingrese un correo válido.</small>
+        <small *ngIf="emailControl?.errors?.['invalidEmail']">El correo electrónico es inválido.</small>
+      </div>
+    </div>
+  </form>
+  

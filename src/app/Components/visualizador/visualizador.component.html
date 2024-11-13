@@ -1,0 +1,10 @@
+<div [ngClass]="{'dark-mode': isDarkMode}">
+  <p>Contraseña: {{ password }}</p>
+  <p>Email: {{ email }}</p>
+  <p>Texto: {{ text }}</p>
+
+  <div>
+    <p>Acción: {{ accion }}</p>
+    <div [style.backgroundColor]="getColor()" class="square"></div>
+  </div>
+</div>

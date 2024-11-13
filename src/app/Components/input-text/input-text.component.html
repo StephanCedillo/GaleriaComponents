@@ -1,0 +1,23 @@
+<div class="input-container" [ngClass]="{'dark-mode': isDarkMode}">
+    <!-- Input donde se escucha el cambio del valor sin un botón -->
+    <input 
+        type="text" 
+        id="input" 
+        [(ngModel)]="text" 
+        (ngModelChange)="enviarValorText($event)" 
+        required
+        pattern="^[a-zA-Z0-9 ]*$"  
+        #textInput="ngModel"
+    />
+    <label class="label" for="input">Ingresar Texto</label>
+    <div class="underline"></div>
+    <div class="sideline"></div>
+    <div class="upperline"></div>
+    <div class="line"></div>
+
+    <!-- Mensajes de error -->
+    <div *ngIf="textInput.invalid && (textInput.dirty || textInput.touched)" class="error-message">
+        <small *ngIf="textInput.errors?.['required']">Este campo es obligatorio.</small>
+        <small *ngIf="textInput.errors?.['pattern']">Solo se permiten letras, números y espacios.</small>
+    </div>
+</div>

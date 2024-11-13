@@ -1,0 +1,94 @@
+/* Establecemos la fuente Workspace */
+@font-face {
+  font-family: 'Workspace';
+  src: url('../../../../public/font/Workspace.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: Workspace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+  
+}
+div{
+  
+  display: flex;
+  flex-direction: column;  /* Apilamos los elementos verticalmente */
+  justify-content: center; /* Centrado vertical */
+  align-items: center;     /* Centrado horizontal */
+  padding: 20px;
+  text-align: center;      /* Centrar el texto en la columna */
+}
+p {
+  margin-bottom: 15px; 
+  font-family: Workspace;
+}
+
+/* Estilo del cuadrado animado */
+.square {
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+  transition: background-color 0.5s ease;
+}
+
+.animate {
+  animation: animateSquare 1s ease-in-out;
+}
+
+@keyframes animateSquare {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Modo oscuro: fondo oscuro y texto claro */
+.dark-mode {
+  transition: 1s;
+  border-radius: 5px;
+  background-color: #121212;  /* Fondo oscuro */
+  color: white;
+}
+
+/* Cuadrado en modo oscuro */
+.dark-mode .square {
+  transition: 1s;
+  background-color: #444; /* Cuadrado de color gris oscuro */
+}
+
+/* Texto en modo oscuro */
+.dark-mode p {
+  transition: 1s;
+  color: #e0e0e0;
+}
+
+/* Contenedor para centrar el contenido */
+.dark-mode, .visualizador-container {
+  transition: 1s;
+  display: flex;
+  flex-direction: column;  /* Apilamos los elementos verticalmente */
+  justify-content: center; /* Centrado vertical */
+  align-items: center;     /* Centrado horizontal */
+  min-height: 100vh;       /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  padding: 20px;
+  text-align: center;      /* Centrar el texto en la columna */
+}
+
+.square {
+  margin-top: 20px;        /* Separación entre el cuadrado y el texto */
+}
+
+/* Opcional: Agregar un espaciado entre los elementos */
+.dark-mode p, .dark-mode .square {
+  margin-bottom: 15px;  /* Separación entre los elementos */
+}
